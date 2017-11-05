@@ -48,7 +48,7 @@ check: $(EXEC) $(TEST_DONE)
 test: $(EXEC)
 	@python tests/runner.py
 
-TEMP ?= 40
+TEMP ?= 10
 FILE_FIB_ITER ?= ./tests/fib-iterative.s
 FILE_FIB_RECU ?= ./tests/fib-recursive.s
 
