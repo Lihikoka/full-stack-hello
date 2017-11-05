@@ -176,6 +176,13 @@ static inline vm_value *vm_get_temp_value(vm_env *env, int id)
     return &env->temps[id];
 }
 
+inline void vm_set_temp_value(vm_env *env, int pos, int n)
+{
+    vm_value v = {.type = INT};
+    v.value.vint = n;
+    env->temps[pos] = v;
+}
+
 static inline vm_value *vm_get_op_value(vm_env *env, const vm_operand *op)
 {
     switch (VM_T(op)) {

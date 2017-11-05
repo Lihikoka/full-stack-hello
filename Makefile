@@ -48,6 +48,14 @@ check: $(EXEC) $(TEST_DONE)
 test: $(EXEC)
 	@python tests/runner.py
 
+TEMP ?= 40
+FILE_FIB_ITER ?= ./tests/fib-iterative.s
+FILE_FIB_RECU ?= ./tests/fib-recursive.s
+
+fib: $(EXEC)
+	@./$(EXEC) --input $(TEMP) $(FILE_FIB_ITER)
+	@./$(EXEC) --input $(TEMP) $(FILE_FIB_RECU)
+
 clean:
 	$(RM) $(EXEC) $(OBJS) $(deps) opcode.h
 
