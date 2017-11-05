@@ -15,7 +15,10 @@ def get_expect_output(testfile):
 
 
 def get_exec_output(testfile):
-    return subprocess.check_output(['./as_exec', '%s.s' % testfile])
+    if testfile == 'tests/fib-iterative' or testfile == 'tests/fib-recursive':    
+        return subprocess.check_output(['./as_exec', '%s.s' % testfile, '--input', '20'])
+    else:
+        return subprocess.check_output(['./as_exec', '%s.s' % testfile])
 
 
 def with_metaclass(meta, *bases):
